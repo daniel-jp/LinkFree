@@ -4,7 +4,6 @@
   "type": "personal",
   "bio": "Software and Web Dev | Data",
   "avatar": "https://github.com/daniel-jp.png",
-
   "tags": [
     "Java",
     "SpringBoot",
@@ -14,7 +13,6 @@
     "NodeJs",
     "TypeScript"
   ],
-
   "socials": [
     { "icon": "FaTwitter", "url": "https://twitter.com/Daniel28725148" },
     { "icon": "FaGithub", "url": "https://github.com/daniel-jp" },
@@ -23,7 +21,6 @@
       "url": "https://www.instagram.com/daniel_j_paulino/"
     }
   ],
-
   "testimonial": [
     {
       "title": "He is very serious at work",
@@ -41,7 +38,6 @@
       "date": "2023-01-24"
     }
   ],
-
   "links": [
     {
       "name": "Connect me on Linkedin",
@@ -98,7 +94,6 @@
       "url": "https://github.com/daniel-jp"
     }
   ],
-
   "milestones": [
     {
       "title": "Started Full Stack development",
