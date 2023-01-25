@@ -9,7 +9,7 @@
     "SpringBoot",
     "React",
     "Angular",
-    "Chakra-ui",
+    "Charkha-ui",
     "NodeJs",
     "TypeScript"
   ],
@@ -85,7 +85,7 @@
       "isVirtual": true,
       "isInPerson": true,
       "color": "#553C9A",
-      "name": "Chakra-ui and React",
+      "name": "Charkha-ui and React",
       "description": "In this year I'll start to learning how to implement chakra-ui in react js",
       "date": {
         "start": "2023-03-02T09:00:00.000+00:00",
@@ -100,7 +100,7 @@
       "date": "September 2021",
       "icon": "NodeJs",
       "color": "#90ee90",
-      "description": "Started full stack development courrently learning Node Js",
+      "description": "Started full stack development currently learning Node Js",
       "url": "https://ayushlohmod.github.io/oscar/"
     },
     {
