@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { useEffect, useState,useRef} from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 
 import UserCard from "../components/user/UserCard";
@@ -8,95 +8,95 @@ import Alert from "../components/Alert";
 import Page from "../components/Page";
 
 export async function getServerSideProps(context) {
-  let users = [];
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`);
-    users = await res.json();
-  } catch (e) {
-    console.log("ERROR search users", e);
-  }
+    let users = [];
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`);
+        users = await res.json();
+    } catch (e) {
+        console.log("ERROR search users", e);
+    }
 
-  return {
-    props: { users },
-  };
+    return {
+        props: { users },
+    };
 }
 
 export default function Search({ users }) {
-  const router = useRouter();
-  const inputRef=useRef();
-  const { username, search } = router.query;
-  const [filteredUsers, setFilteredUsers] = useState([]);
-  const [notFound, setNotFound] = useState();
-  const [threeOrMore, setThreeOrMore] = useState();
-  const [inputValue, setInputValue] = useState(
-    username ? username : search ? search : ""
-  );
+    const router = useRouter();
+    const inputRef = useRef();
+    const { username, search } = router.query;
+    const [filteredUsers, setFilteredUsers] = useState([]);
+    const [notFound, setNotFound] = useState();
+    const [threeOrMore, setThreeOrMore] = useState();
+    const [inputValue, setInputValue] = useState(
+        username ? username : search ? search : ""
+    );
 
-  let results = [];
+    let results = [];
 
-  useEffect(() => {
-    inputRef.current.focus();
-    if (username) {
-      setNotFound(username);
-      setThreeOrMore(false);
-    }
-  }, [username]);
+    useEffect(() => {
+        inputRef.current.focus();
+        if (username) {
+            setNotFound(username);
+            setThreeOrMore(false);
+        }
+    }, [username]);
 
-  const filterData = (value) => {
-    if (value.length <= 3) {
-      setThreeOrMore(false);
-      setFilteredUsers(results);
-      setNotFound();
-    }
-
-    if (value.length >= 3) {
-      setThreeOrMore(true);
-      results = users.filter((user) => {
-        if (user.name.toLowerCase().includes(value.toLowerCase())) {
-          return true;
+    const filterData = (value) => {
+        if (value.length <= 3) {
+            setThreeOrMore(false);
+            setFilteredUsers(results);
+            setNotFound();
         }
 
-        let tag = user.tags?.find((tag) =>
-          tag.toLowerCase().includes(value.toLowerCase())
-        );
-        if (tag) {
-          return true;
+        if (value.length >= 3) {
+            setThreeOrMore(true);
+            results = users.filter((user) => {
+                if (user.name.toLowerCase().includes(value.toLowerCase())) {
+                    return true;
+                }
+
+                let tag = user.tags?.find((tag) =>
+                    tag.toLowerCase().includes(value.toLowerCase())
+                );
+                if (tag) {
+                    return true;
+                }
+            });
+
+            if (!results.length) {
+                setNotFound(value);
+            }
+
+            if (results.length) {
+                setNotFound();
+            }
+
+            setFilteredUsers(results);
         }
-      });
+    };
 
-      if (!results.length) {
-        setNotFound(value);
-      }
+    useEffect(() => {
+        if (inputValue) {
+            filterData(inputValue);
+        }
+    }, [inputValue]);
 
-      if (results.length) {
-        setNotFound();
-      }
-
-      setFilteredUsers(results);
-    }
-  };
-
-  useEffect(() => {
-    if (inputValue) {
-      filterData(inputValue);
-    }
-  }, [inputValue]);
-
-  return (
-    <>
+    return ( 
+        <>
       <Head>
         <title>LinkFree Search Users</title>
         <meta name="description" content="Search LinkFree user directory" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Page>
-        <h1 className="text-4xl mb-4 font-bold">Search</h1>
+        <h1 className="mb-4 text-4xl font-bold">Search</h1>
 
         <div className="relative">
           <input
             placeholder="Search users"
             ref={inputRef}
-            className="border-2 hover:border-orange-600 transition-all duration-250 ease-linear rounded px-6 py-2 mb-4 block w-full"
+            className="block w-full px-6 py-2 mb-4 transition-all ease-linear border-2 rounded hover:border-orange-600 duration-250"
             name="keyword"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
@@ -125,5 +125,5 @@ export default function Search({ users }) {
         </ul>
       </Page>
     </>
-  );
+    );
 }
