@@ -1,3 +1,25 @@
+
+It's working locally, I don't know what's wrong with the deployment
+
+<img width="1232" alt="Captura de Tela 2023-01-25 às 05 53 21" src="https://user-images.githubusercontent.com/37070026/214483529-f1558141-cff5-45f2-ac3b-a92a6fd3381c.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [![Open in GitPod](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/EddieHubCommunity/LinkFree) ![Uptime](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FEddieHubCommunity%2Fmonitoring%2Fmaster%2Fapi%2Flink-free%2Fuptime.json) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/EddieHubCommunity/LinkFree) ![GitHub repo size](https://img.shields.io/github/repo-size/EddieHubCommunity/LinkFree)
 
 # What is LinkFree?
